@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Ram
+comment1.params=x\ y\ color
+comment1.target=Ram(int,\ int,\ java.lang.String)
+comment2.params=newX\ newY\ board
+comment2.target=boolean\ isValidMove(int,\ int,\ Ram[][])
+comment3.params=newX\ newY
+comment3.target=boolean\ isWithinBoard(int,\ int)
+comment4.params=path
+comment4.target=java.awt.Image\ getImage(java.lang.String)
+comment5.params=newX\ newY
+comment5.target=void\ move(int,\ int)
+numComments=6
