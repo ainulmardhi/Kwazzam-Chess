@@ -30,7 +30,7 @@ public class BoardView extends JPanel {
     }
 
     public void loadPieceIcons(int x, int y, String pieceType, String color) {
-        String filePath = "/Users/aisyah/Desktop/kwazam/icons/" + pieceType.toLowerCase() + "_" + color.toLowerCase() + ".png";
+        String filePath = "icons/" + pieceType.toLowerCase() + "_" + color.toLowerCase() + ".png";
         try {
             ImageIcon icon = new ImageIcon(filePath);
             // Resize icon to fit button
