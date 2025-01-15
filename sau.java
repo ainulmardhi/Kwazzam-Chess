@@ -1,25 +1,17 @@
-
-import java.awt.*;
-
-public class sau //extends piece
-{
-    public sau() {
-        if (player == red) {
-            image = getImage("/kwazam chess/icons/sau_red");
+public class Sau extends Piece {
+    public Sau(int x, int y, String color) {
+        super(x, y, color);
+        if (color.equals("red")) {
+            image = getImage("/kwazam chess/icons/sau_red.png");
         } else {
-            image = getImage("/kwazam chess/icons/sau_blue");
-        }
+            image = getImage("/kwazam chess/icons/sau_blue.png");
         }
     }
 
-    public boolean step(int targetCol, int targetRow) {
-        if (isWithinBoard(targetCol,targetRow)) {
-           if (Math.abs(targetCol - preCol) * Math.abs(targetRow -preCol) == 1) || if (Math.abs(targetCol - preCol) + Math.abs(targetRow -preCol) == 1) {
-               if (isValidSquare(targetCol, targetRow)) {
-               return true;
-                }
-            }
-        }
-        return false;
+    @Override
+    public boolean isValidMove(int endX, int endY, Piece[][] board) {
+        int dx = Math.abs(endX - x);
+        int dy = Math.abs(endY - y);
+        return (dx <= 1 && dy <= 1);
     }
 }

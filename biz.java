@@ -1,22 +1,17 @@
-import java.awt.*;
-
-public class biz //extends piece
-{
-    public biz() {
-        if (player == red) {
-            image = getImage("/kwazam chess/icons/biz_red");
+public class Biz extends Piece {
+    public Biz(int x, int y, String color) {
+        super(x, y, color);
+        if (color.equals("red")) {
+            image = getImage("/kwazam chess/icons/biz_red.png");
         } else {
-            image = getImage("/kwazam chess/icons/biz_blue");
-        }
+            image = getImage("/kwazam chess/icons/biz_blue.png");
         }
     }
 
-    public boolean step(int targetCol, int targetRow) {
-        if (isWithinBoard(targetCol,targetRow)) {
-           if (Math.abs(targetCol - preCol) * Math.abs(targetRow -preCol) == 2) {
-               return true;
-           }
-        }
-        return false;
+    @Override
+    public boolean isValidMove(int endX, int endY, Piece[][] board) {
+        int dx = Math.abs(endX - x);
+        int dy = Math.abs(endY - y);
+        return (dx == 2 && dy == 1) || (dx == 1 && dy == 2);
     }
 }

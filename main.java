@@ -10,37 +10,34 @@ public class Main {
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
-                    
-                    // Set board size (480x300 for 8x5 grid with 60px cells)
-                    setPreferredSize(new Dimension(8 * 60, 5 * 60));
+
+                    // Set board size (300x480 for 5x8 grid with 60px cells)
+                    setPreferredSize(new Dimension(5 * 60, 8 * 60));
 
                     // Draw grid lines
-                    for (int i = 0; i <= 5; i++) {
-                        g.drawLine(0, i * 60, 8 * 60, i * 60);  // Horizontal lines
+                    for (int i = 0; i <= 8; i++) {
+                        g.drawLine(0, i * 60, 5 * 60, i * 60); // Horizontal lines
                     }
-                    for (int j = 0; j <= 8; j++) {
-                        g.drawLine(j * 60, 0, j * 60, 5 * 60);  // Vertical lines
+                    for (int j = 0; j <= 5; j++) {
+                        g.drawLine(j * 60, 0, j * 60, 8 * 60); // Vertical lines
                     }
-                    
+
                     // Draw pieces on the grid
-                    for (int i = 0; i < 5; i++) {
-                        for (int j = 0; j < 8; j++) {
-                            Ram piece = gameBoard.getPiece(i, j);
+                    for (int i = 0; i < 8; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            Piece piece = gameBoard.getPiece(i, j);
                             if (piece != null && piece.getImage() != null) {
-                                g.drawImage(piece.getImage(), j * 60, i * 60, 60, 60, this);                            
-                            } else if (piece != null) {
-                                g.setColor(Color.BLUE);
-                                g.fillRect(j * 60, i * 60, 60, 60);
+                                g.drawImage(piece.getImage(), j * 60, i * 60, 60, 60, this);
                             }
                         }
                     }
                 }
             };
-            
+
             // Ensure panel size is respected
-            boardPanel.setPreferredSize(new Dimension(8 * 60, 5 * 60));
+            boardPanel.setPreferredSize(new Dimension(5 * 60, 8 * 60));
             frame.add(boardPanel);
-            frame.pack();  // Resize frame to fit panel
+            frame.pack(); // Resize frame to fit panel
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setVisible(true);
 
