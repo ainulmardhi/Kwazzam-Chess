@@ -30,15 +30,25 @@ public class BoardView extends JPanel {
     }
 
     public void loadPieceIcons(int x, int y, String pieceType, String color) {
+        // String filePath = "/Users/aisyah/Desktop/kwazam/icons/" + pieceType.toLowerCase() + "_" + color.toLowerCase() + ".png";
+        // try {
+        //     ImageIcon icon = new ImageIcon(filePath);
+        //     // Resize icon to fit button
+        //     Image scaledIcon = icon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+        //     boardButtons[x][y].setIcon(new ImageIcon(scaledIcon));
+        // } catch (Exception e) {
+        //     System.err.println("Error loading icon: " + filePath);
+        // }
         String filePath = "icons/" + pieceType.toLowerCase() + "_" + color.toLowerCase() + ".png";
         try {
-            ImageIcon icon = new ImageIcon(filePath);
-            // Resize icon to fit button
-            Image scaledIcon = icon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
-            boardButtons[x][y].setIcon(new ImageIcon(scaledIcon));
-        } catch (Exception e) {
-            System.err.println("Error loading icon: " + filePath);
-        }
+                ImageIcon icon = new ImageIcon(filePath);
+                // Resize icon to fit button
+                Image scaledIcon = icon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+                boardButtons[x][y].setIcon(new ImageIcon(scaledIcon));
+            } catch (Exception e) {
+                System.err.println("Error loading icon: " + filePath);
+            }
+
     }
 
     public void initializeBoard() {

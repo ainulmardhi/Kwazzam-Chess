@@ -17,7 +17,7 @@ public abstract class Piece {
         this.y = newY;
     }
 
-    protected boolean isWithinBoard(int newX, int newY, Piece[][] board) {
+    public boolean isWithinBoard(int newX, int newY, Piece[][] board) {
         return newX >= 0 && newX < 8 && newY >= 0 && newY < 5; // Assuming 5x8 board
     }
 
