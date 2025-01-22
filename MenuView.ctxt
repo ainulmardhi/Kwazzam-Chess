@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=MenuView
+comment1.params=
+comment1.target=MenuView()
+comment2.params=listener
+comment2.target=void\ addButtonListener(java.awt.event.ActionListener)
+numComments=3

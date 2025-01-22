@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=BoardView
+comment1.params=
+comment1.target=BoardView()
+comment2.params=x\ y\ pieceType\ color
+comment2.target=void\ loadPieceIcons(int,\ int,\ java.lang.String,\ java.lang.String)
+comment3.params=
+comment3.target=void\ initializeBoard()
+numComments=4

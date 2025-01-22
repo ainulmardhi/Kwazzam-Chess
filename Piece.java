@@ -1,10 +1,6 @@
-import java.awt.Image;
-import javax.swing.ImageIcon;
-
 public abstract class Piece {
     protected int x, y;
     protected String color;
-    protected Image image;
 
     public Piece(int x, int y, String color) {
         this.x = x;
@@ -12,22 +8,20 @@ public abstract class Piece {
         this.color = color;
     }
 
-    public Image getImage() {
-        return image;
-    }
+    public abstract boolean isValidMove(int endX, int endY, Piece[][] board);
 
     public String getColor() {
         return color;
     }
 
-    public void move(int endX, int endY) {
-        this.x = endX;
-        this.y = endY;
+    public void move(int newX, int newY) {
+        this.x = newX;
+        this.y = newY;
     }
 
-    public abstract boolean isValidMove(int endX, int endY, Piece[][] board);
-
-    protected Image getImage(String path) {
-        return new ImageIcon(getClass().getResource(path)).getImage();
+    public boolean isWithinBoard(int newX, int newY, Piece[][] board) {
+        return newX >= 0 && newX < 8 && newY >= 0 && newY < 5; // Assuming 5x8 board
     }
+
+    public abstract boolean step(int newX, int newY, Piece[][] board);
 }

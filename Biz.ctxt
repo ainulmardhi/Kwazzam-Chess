@@ -1,7 +1,7 @@
 #BlueJ class context
-comment0.target=Ram
+comment0.target=Biz
 comment1.params=x\ y\ color
-comment1.target=Ram(int,\ int,\ java.lang.String)
+comment1.target=Biz(int,\ int,\ java.lang.String)
 comment2.params=targetCol\ targetRow\ board
 comment2.target=boolean\ step(int,\ int,\ Piece[][])
 numComments=3

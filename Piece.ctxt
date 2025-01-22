@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Piece
+comment1.params=x\ y\ color
+comment1.target=Piece(int,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getColor()
+comment3.params=newX\ newY
+comment3.target=void\ move(int,\ int)
+comment4.params=newX\ newY\ board
+comment4.target=boolean\ isWithinBoard(int,\ int,\ Piece[][])
+comment5.params=newX\ newY\ board
+comment5.target=boolean\ step(int,\ int,\ Piece[][])
+numComments=6

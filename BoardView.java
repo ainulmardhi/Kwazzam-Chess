@@ -2,15 +2,15 @@ import java.awt.*;
 import javax.swing.*;
 
 public class BoardView extends JPanel {
-    
+
     JButton[][] boardButtons;
-    //Piece[][] pieces;
+    private Piece[][] board;
 
     public BoardView() {
-        setLayout(new GridLayout(8, 5)); //8 rows, 5 columns
+        setLayout(new GridLayout(8, 5)); // 8 rows, 5 columns
 
         boardButtons = new JButton[8][5];
-        //pieces = new Piece[8][5];
+        board = new Piece[8][5];
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 5; j++) {
@@ -42,53 +42,54 @@ public class BoardView extends JPanel {
     }
 
     public void initializeBoard() {
+        // Initialize the board with nulls
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 5; col++) {
+                board[row][col] = null;
+                boardButtons[row][col].setIcon(null); // Clear the icons
+            }
+        }
+
         // Example setup: Place blue pieces on row 6 and red pieces on row 2
         for (int i = 0; i < 5; i++) {
+            board[6][i] = new Ram(6, i, "blue");
             loadPieceIcons(6, i, "ram", "blue");
+            board[1][i] = new Ram(1, i, "red");
             loadPieceIcons(1, i, "ram", "red");
         }
 
         // Additional example pieces
+        board[7][1] = new Biz(7, 1, "blue");
         loadPieceIcons(7, 1, "biz", "blue");
+        board[0][1] = new Biz(0, 1, "red");
         loadPieceIcons(0, 1, "biz", "red");
+        board[7][3] = new Biz(7, 3, "blue");
         loadPieceIcons(7, 3, "biz", "blue");
+        board[0][3] = new Biz(0, 3, "red");
         loadPieceIcons(0, 3, "biz", "red");
+        board[7][4] = new Tor(7, 4, "blue");
         loadPieceIcons(7, 4, "tor", "blue");
+        board[0][0] = new Tor(0, 0, "red");
         loadPieceIcons(0, 0, "tor", "red");
+        board[7][0] = new Xor(7, 0, "blue");
         loadPieceIcons(7, 0, "xor", "blue");
+        board[0][4] = new Xor(0, 4, "red");
         loadPieceIcons(0, 4, "xor", "red");
+        board[7][2] = new Sau(7, 2, "blue");
         loadPieceIcons(7, 2, "sau", "blue");
+        board[0][2] = new Sau(0, 2, "red");
         loadPieceIcons(0, 2, "sau", "red");
     }
 
-    // public void updateBoard( model) {
-    //     for (int i = 0; i < 5; i++) {
-    //         for (int j = 0; j < 8; j++) {
-    //             Piece piece = model.getPieceAt(i, j);
+    public Piece getPiece(int x, int y) {
+        return board[x][y];
+    }
 
-    //             if (piece != null) {
-    //                 // Set the icon for the piece
-    //                 String pieceType = piece.getType();
-    //                 String color = piece.getColor();
-    //                 String filePath = "/Users/aisyah/Desktop/kwazam/icons/" 
-    //                                 + pieceType.toLowerCase() + "_" 
-    //                                 + color.toLowerCase() + ".png";
+    public void setPiece(int x, int y, Piece piece) {
+        board[x][y] = piece;
+    }
 
-    //                 try {
-    //                     ImageIcon icon = new ImageIcon(filePath);
-    //                     // Resize icon to fit button
-    //                     Image scaledIcon = icon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
-    //                     boardButtons[i][j].setIcon(new ImageIcon(scaledIcon));
-    //                 } catch (Exception e) {
-    //                     System.err.println("Error loading icon: " + filePath);
-    //                 }
-    //             } else {
-    //                 // Clear the icon if the cell is empty
-    //                 boardButtons[i][j].setIcon(null);
-    //             }
-    //         }
-    //     }
-    // }
-
-    //public void flipScreen() {} on each turn
+    public Piece[][] getBoard() {
+        return board;
+    }
 }

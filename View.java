@@ -1,30 +1,19 @@
-import java.awt.*;
 import javax.swing.*;
 
-public class View extends JFrame {
-
-    MenuView menu;
-    BoardView board;
+public class View {
+    private BoardView boardView;
+    private MenuView menuView;
 
     public View() {
-        super("Kwazam Chess");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        boardView = new BoardView();
+        menuView = new MenuView();
+    }
 
-        // Set the layout and size
-        setLayout(new BorderLayout());
-        setSize(600, 960);
+    public BoardView getBoard() {
+        return boardView;
+    }
 
-        // Initialize components
-        menu = new MenuView();
-        board = new BoardView();
-
-        board.initializeBoard();
-
-        // Add components to the frame
-        add(menu, BorderLayout.NORTH);
-        add(board, BorderLayout.CENTER);
-
-        // Make the frame visible
-        setVisible(true);
+    public MenuView getMenu() {
+        return menuView;
     }
 }
